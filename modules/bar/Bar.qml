@@ -28,7 +28,44 @@ PanelWindow {
         topLeftRadius: 0
         bottomLeftRadius: 0
 
-        // todo
-        // Workspaces {}
+        Workspaces {
+            anchors {
+                top: parent.top
+                horizontalCenter: parent.horizontalCenter
+                topMargin: 20
+            }
+        }
+
+        Clock {
+            anchors.centerIn: parent
+        }
+
+        SystemTray {
+            anchors {
+                horizontalCenter: parent.horizontalCenter
+                bottom: statusColumn.top
+                bottomMargin: 16
+            }
+        }
+
+        Column {
+            id: statusColumn
+            anchors {
+                bottom: parent.bottom
+                horizontalCenter: parent.horizontalCenter
+                bottomMargin: 20
+            }
+            spacing: 12
+
+            StatusGroup {}
+
+            Rectangle {
+                width: 32
+                height: 1
+                color: Colours.alpha(Colours.m3outline, 0.3)
+                anchors.horizontalCenter: parent.horizontalCenter
+                radius: 0.5
+            }
+        }
     }
 }
